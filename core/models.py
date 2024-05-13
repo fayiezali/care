@@ -15,11 +15,14 @@ class ModelCustomer(models.Model):
             ordering            = ('customer_user',)
             verbose_name        = "Customer"
             verbose_name_plural = "Customers" 
-# ____________________________________________________________________________________________
+#(01)_______________________________________________________
 class ModelCategory(models.Model):
-    category_name = models.CharField(max_length=200)
-    category_slug = models.SlugField(max_length=200 ,
+    category_name      = models.CharField(max_length=200)
+    category_slug      = models.SlugField(max_length=200 ,
                         unique=True)
+    category_image     = models.ImageField(upload_to="Catgory_File_Photo/" , db_index=True  , blank=False , null=False , verbose_name="Image Preview"  ,default='Default_Image.png')
+    category_availability = models.BooleanField(default=False                  , db_index=True  ,                            verbose_name="Available")
+
     #
     def __str__(self):
         return self.category_name
@@ -31,13 +34,15 @@ class ModelCategory(models.Model):
 # ____________________________________________________________________________________________
 class ModelProduct(models.Model):
     product_name         = models.CharField(max_length=200)
+    product_slug         = models.SlugField(max_length=200 ,
+                        unique=True)
     product_category     = models.ForeignKey(ModelCategory, 
                                 on_delete=models.CASCADE)
     product_price        = models.DecimalField(max_digits=10,
                                 decimal_places=2)
     product_stock        = models.PositiveIntegerField(default=0)
     product_description  = models.TextField()
-    product_image        = models.ImageField(upload_to='products/')
+    product_image        = models.ImageField(upload_to='products_File_Photo/')
     product_availability = models.BooleanField(default=False)
     #
     def __str__(self):
@@ -50,21 +55,29 @@ class ModelProduct(models.Model):
 # ____________________________________________________________________________________________
 class ModelOrder(models.Model):
     STATUS_CHOICES = (
-        ('New'       , 'New'),
-        ('Pending'   , 'Pending'),
-        ('Delivered' , 'Delivered'),
-        ('Cancelled' , 'Cancelled'),
-    )
-    order_customer    = models.ForeignKey(ModelCustomer, 
-                            on_delete=models.CASCADE)
-    order_status      = models.CharField(max_length=20, 
+                    ('New'       , 'New'),
+                    ('paid'      , 'Paid'),
+                    ('shipped'   , 'Shipped'),
+                    ('Pending'   , 'Pending'),
+                    ('Delivered' , 'Delivered'),
+                    ('Cancelled' , 'Cancelled'),
+                    )
+    order_customer       = models.ForeignKey(ModelCustomer, 
+                        on_delete=models.SET_NULL, 
+                        null=True, blank=True)
+    # order_customer     = models.ForeignKey(ModelCustomer, 
+    #                         on_delete=models.CASCADE)
+    order_status         = models.CharField(max_length=20, 
                             choices=STATUS_CHOICES, default='New')
-    order_date        = models.DateTimeField(auto_now_add=True)
-    order_is_finished = models.BooleanField(default=False)
+    order_date           = models.DateTimeField(auto_now_add=True)
+    order_number = models.CharField(max_length=200)
+    order_is_finished    = models.BooleanField(default=False)
     #
     def __str__(self):
         # return str(self.id)
         # return f"Order {self.id}"
+        # return f'{self.product.name} ({self.quantity})'
+        # return f'{self.user.username}\'s Order {self.pk}'
         return str(f"Customer Name: {self.order_customer}") +" - " + str(f"Order No: {self.id}")
     
     # def __str__(self):
@@ -77,17 +90,18 @@ class ModelOrder(models.Model):
             verbose_name_plural = "Orders" 
 # ____________________________________________________________________________________________
 class ModelCart(models.Model):
-    # customer = models.ForeignKey(ModelCustomer, on_delete=models.CASCADE)
     cart_product       = models.ForeignKey(ModelProduct, 
-                                    on_delete=models.CASCADE, null=True)
+                                    on_delete=models.SET_NULL, null=True)
     cart_order         = models.ForeignKey(ModelOrder ,
-                                    on_delete = models.CASCADE)
+                                    on_delete=models.SET_NULL, null=True)
     cart_quantity      = models.PositiveIntegerField(default=0)
-    cart_details_price = models.PositiveIntegerField(default=0)
-    cart_date_added    = models.DateTimeField(auto_now_add=True)
+    cart_price         = models.PositiveIntegerField(default=0)
+    cart_creation_date = models.DateTimeField(auto_now_add=True)
+    cart_image         = models.ImageField(upload_to='Cart_File_Photo/')
     #
     def __str__(self): 
         return str(self.cart_product)
+	    # return f'{self.product.name} ({self.quantity})'
         # return f"{self.quantity} of {self.product.name} in Cart {self.cart.id}"
     class Meta:
             ordering            = ('-cart_product',)
