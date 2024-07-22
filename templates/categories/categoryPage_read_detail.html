@@ -1,0 +1,21 @@
+<!-- templates/categories/category_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ categoryVariable_read_detail_result.categoryField_name }}</title>
+</head>
+<body>
+    <h1>{{ categoryVariable_read_detail_result.categoryField_name }}</h1>
+    <p>{{ categoryVariable_read_detail_result.categoryField_slug }}</p>
+    <br>
+    <br>
+    <a href="{% url 'categoryURLs_update' categoryVariable_read_detail_result.id %}">Edit</a>
+    <form action="{% url 'category_delete' category.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    <a href="{% url 'categoryURLs_read_all' %}">Back to Categories All </a>
+
+    <br>
+</body>
+</html>

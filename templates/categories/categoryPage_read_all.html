@@ -1,0 +1,38 @@
+{% comment %} 
+{% endcomment %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <h1>Categories - Home Page - List</h1>
+
+</head>
+
+<body>
+  
+  <ul>
+    {% for category_item in categoryVariable_read_all_result %}
+      <li>
+      <a href="{% url 'categoryURLs_read_detail' category_item.id %}">
+      {{ category_item.categoryField_name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'categoryURLs_create' %}">Create New Category</a>
+
+
+</body>
+</html>
+{% comment %} 
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Categories</h2>
+  <ul>
+    {% for category in categories %}
+      <li><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_category' %}">Create New Category</a>
+{% endblock %} {% endcomment %}

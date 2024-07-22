@@ -1,0 +1,17 @@
+<!-- templates/categories/category_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ categoryVariable_update_result.name }}</title>
+</head>
+<body>
+    <h1>{{ categoryVariable_update_result.name }}</h1>
+    <p>{{ categoryVariable_update_result.description }}</p>
+    <a href="{% url 'category_update' categoryVariable_update_result.id %}">Edit</a>
+    <form action="{% url 'category_delete' categoryVariable_update_result.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    <a href="{% url 'url__read_category_all' %}">Back to Categories</a>
+</body>
+</html>

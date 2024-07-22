@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+</body>
+</html>
+
+<h1>Update Customer - 01</h1>
+<form
+method="POST" 
+action="{% url 'url_update_customer' customerParameter_pk %}">
+    {% csrf_token %}
+    <label
+    for="customerField_mobile">New Mobile Number:
+    </label>
+    
+    <input
+    type="text" id="customerText_mobile" 
+    name="customerText_mobile"
+    >
+    
+    <button type="submit">Update</button>
+</form>
+
+
+    </html>

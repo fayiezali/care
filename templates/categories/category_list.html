@@ -1,0 +1,20 @@
+<!-- templates/categories/category_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category List</title>
+</head>
+<body>
+    <h1>Categories - Home Page</h1>
+    <ul>
+        {% for variable__category_item in variable__category_all %}
+        <li> 
+            {% comment %} category_detail=category_read {% endcomment %}
+            <a href="{% url 'url__read_category_detail' variable__category_item.id %}">{{ variable__category_item.name }}</a>
+            {% comment %} <a href="{% url 'category_read' category.id %}">{{ category.name }}</a> {% endcomment %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% comment %} <a href="{% url 'category_create' %}">Add New Category</a> {% endcomment %}
+</body>
+</html>

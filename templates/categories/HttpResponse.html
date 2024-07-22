@@ -1,0 +1,1594 @@
+
+<!DOCTYPE html>
+</body>
+</html>
+
+{% comment %}
+
+<h1>_______________(A1) Create Customer_______________<h1>
+    <h4><h4>
+        <form method="POST" action="{% url 'url_create_customer' %}">
+            {% csrf_token %}
+                
+            <label for="name">Customer Name:</label>
+            <input type="text" name="customerText_name">
+                
+            <br>
+            <label for="name">Customer Mobile:</label>
+            <input type="text" name="customerText_mobile">
+            
+            <br>
+            <input type="submit" name="submit">
+        </form>
+<h1>_______________(A2) Create Category_______________<h1>
+    <h4><h4>
+        <form method="POST" action="{% url 'url_create_category' %}">
+        {% csrf_token %}
+            
+        <label for="name">Name:</label>
+        <input type="text" name="categoryText_name">
+            
+        <br>
+        <label for="name">Slug:</label>
+        <input type="text" name="categoryText_slug">
+            
+        <br>
+        <label for="name">Image Path:</label>
+        <input type="text" name="productText_image">
+            
+        <br>
+        <label for="name">Category Vailability:</label>
+        <input type="text" name="categoryText_availability">
+            
+        <br>
+        <input type="submit" name="submit">
+    </form>
+<h1>_______________(A3) Create Product_______________<h1>
+    <h4><h4>
+        <form method="POST" action="{% url 'url_create_product' %}">
+        {% csrf_token %}
+            
+        <label for="name">Product Name:</label>
+        <input type="text" name="productText_name">
+            
+        <br>
+        <label for="name">category Name:</label>
+        <input type="text" name="categoryText_name">
+
+        <br>
+        <label for="name">Price:</label>
+        <input type="text" name="productText_price">
+            
+        <br>
+        <label for="name">Stock:</label>
+        <input type="text" name="productText_stock">
+            
+        <br>
+        <label for="name">Description:</label>
+        <input type="text" name="productText_Description">
+            
+        <br>
+        <label for="name">Image:</label>
+        <input type="text" name="productImage_image">
+            
+        <br>
+        <label for="name">product Availability:</label>
+        <input type="text" name="productBoolean_availability">
+            
+        <br>
+        <input type="submit" name="submit">
+    </form>
+    <h1>_______________(A4) Create Order_______________<h1>
+        <h4><h4>
+            <form method="POST" action="{% url 'url_create_order' %}">
+                {% csrf_token %}
+                
+                <label for="name"> Order Customer:</label>
+                <input type="text" name="orderText_customer">
+                
+                <br>
+                <label for="name">Order Status:</label>
+                <input type="text" name="orderText_status">
+                <br>
+                <label for="name">Order Date:</label>
+                <input type="text" name="orderText_date">
+                
+                <br>
+                <label for="name">Order Is Finished:</label>
+                <input type="text" name="orderText_is_finished">
+                
+                <br>
+                <input type="submit" name="submit">
+            </form>
+    <h1>_______________(A5) Create Order Datils_______________<h1>
+        <h4><h4>
+            <form method="POST" action="{% url 'url_create_orderDetail' %}">
+                {% csrf_token %}
+                
+                <label for="name"> OrderDetail Order:</label>
+                <input type="text" name="OrderDetailText_order">
+                
+                <br>
+                <label for="name">OrderDetail Product:</label>
+                <input type="text" name="OrderDetailText_product">
+                <br>
+                <label for="name">OrderDetail Quantity:</label>
+                <input type="text" name="OrderDetailText_quantity">
+                
+                <br>
+                <label for="name">OrderDetail Price:</label>
+                <input type="text" name="OrderDetailText_price">
+                
+                <br>
+                <input type="submit" name="submit">
+            </form>
+
+        <h1>_______________(A6) Create Coupon_______________<h1>
+            <h4><h4>
+                <form method="POST" action="{% url 'url_create_coupon' %}">
+                    {% csrf_token %}
+                        
+                    <label for="name"> Coupon Code:</label>
+                    <input type="text" name="couponText_code">
+                        
+                    <br>
+                    <label for="name">coupon Discount:</label>
+                    <input type="text" name="couponText_discount">
+                    
+                    <br>
+                    <label for="name">Coupon Valid From:</label>
+                    <input type="text" name="couponText_valid_from">
+                    
+                    <br>
+                    <label for="name">Coupon Valid To:</label>
+                    <input type="text" name="couponText_valid_to">
+                    
+                    <br>
+                    <input type="submit" name="submit">
+                </form>
+    <h1>_______________(A7) Create Refund_______________<h1>
+        <h4><h4>
+            <form method="POST" action="{% url 'url_create_refund' %}">
+                {% csrf_token %}
+            
+            <label for="name"> Order Rdfund</label>
+            <input type="text" name="refundText_order">
+            
+            <br>
+            <label for="name">Season Refund:</label>
+            <input type="text" name="refundText_reason">
+            
+            <br>
+            <label for="name">Approved Refund:</label>
+            <input type="text" name="refundText_approved">
+            
+            <br>
+            <input type="submit" name="submit">
+        </form>
+
+    <h1>_______________(A8) Create Review_______________<h1>
+        <h4><h4>
+            <form method="POST" action="{% url 'url_create_review' %}">
+                {% csrf_token %}
+            
+            <label for="name"> Review Productd</label>
+            <input type="text" name="reviewText_product">
+            
+            <br>
+            <label for="name">Review Customer ID:</label>
+            <input type="text" name="reviewText_customer_id">
+            
+            <br>
+            <label for="name">Review Rating (1,2,3,4,5):</label>
+            <input type="text" name="reviewText_rating">
+            
+            <br>
+            <label for="name">Review Comment:</label>
+            <input type="text" name="reviewText_comment">
+            
+            
+            <br>
+            <input type="submit" name="submit">
+        </form>
+
+
+<h1>_______________(B1) Read Customer-Detail _______________<h1>
+    <h4><h4>
+    <form method="POST" action="{% url 'url_read_detail_customer' customerVariable_read_detail_result.id %}">
+        {% csrf_token %}
+        <h4>User Customer: {{ customerVariable_read_detail_result.customerField_user }}</h4>
+        <h4>Mobile Number: {{ customerVariable_read_detail_result.customerField_mobile }}</h4>
+        <input type="submit" name="submit"> 
+    </form>
+
+        <h1>_______________(B2) Read Category-Detail_______________<h1>
+    <h4><h4>
+    <form method="POST" action="{% url 'url_read_detail_category' categoryVariable_read_detail_result.id %}">
+        {% csrf_token %}
+
+        <h4>Category Name     : {{categoryVariable_read_detail_result.categoryField_name}}     <h4>
+        <h4>Category Slug     : {{categoryVariable_read_detail_result.categoryField_slug}}     <h4>
+        <h4>Category Image    : {{categoryVariable_read_detail_result.categoryField_image}}    <h4>
+        <h4>Category Available: {{categoryVariable_read_detail_result.categoryField_available}}<h4>
+        <input type="submit" name="submit">
+    </form>
+
+    <h1>_______________(B3) Read Product-Detail_______________<h1>
+    <h4><h4>
+        <h4>Product Name:        {{ productVariable_read_detail_result.productField_name        }}</h4>
+        <h4>Product Category:    {{ productVariable_read_detail_result.productField_category    }}</h4>
+        <h4>Product Price:       {{ productVariable_read_detail_result.productField_price       }}</h4>
+        <h4>Product Stock:       {{ productVariable_read_detail_result.productField_stock       }}</h4>
+        <h4>Product Description: {{ productVariable_read_detail_result.productField_description }}</h4>
+        <h4>Product Image:       {{ productVariable_read_detail_result.productField_image.url       }}</h4>
+        <h4>Product Availability:{{ productVariable_read_detail_result.productField_availability}}</h4>
+    <h1>_______________(B4) Read Order______________________<h1>
+        <h4><h4>
+            <h4>Order Customer:   {{ orderVariable_read_detail_result.orderField_customer    }}</h4>
+            <h4>Order Status:     {{ orderVariable_read_detail_result.orderField_status      }}</h4>
+            <h4>Order Date:       {{ orderVariable_read_detail_result.orderField_date        }}</h4>
+            <h4>Order Is Finished:{{ orderVariable_read_detail_result.orderField_is_finished }}</h4>
+    <h1>_______________(B5) Read OrderDetail____________<h1>
+            <h4><h4>
+                <h4>OrderDetail Order:    {{ orderDetailVariable_read_detail_result.OrderDetailField_order     }}</h4>
+                <h4>OrderDdtail Product:  {{ orderDetailVariable_read_detail_result.OrderDetailField_product   }}</h4>
+                <h4>OrderDetail Quantity: {{ orderDetailVariable_read_detail_result.OrderDetailField_quantity  }}</h4>
+                <h4>OrderDetail Price:    {{ orderDetailVariable_read_detail_result.OrderDetailField_price     }}</h4>
+    <h1>_______________(B6) Read Coupon____________<h1>
+        <h4><h4>
+        <h4>Coupon Code:      {{ couponVariable_read_detail_result.CouponField_code     }}</h4>
+        <h4>Coupon Discount:  {{ couponVariable_read_detail_result.CouponField_discount   }}</h4>
+        <h4>Coupon Valid From:{{ couponVariable_read_detail_result.CouponField_valid_from  }}</h4>
+        <h4>Coupon Valid To:  {{ couponVariable_read_detail_result.CouponField_valid_to     }}</h4>
+    <h1>_______________(B7) Read Refund____________<h1>
+        <h4><h4
+            <h4>Refund Order:   {{ refundVariable_read_detail_result.refundField_order    }}</h4>
+            <h4>Refund Reason:  {{ refundVariable_read_detail_result.refundField_reason      }}</h4>
+            <h4>Refund approved:{{ refundVariable_read_detail_result.refundField_approved        }}</h4>
+    <h1>_______________(B8) Read Review____________<h1>
+        <h4><h4>
+        <h4>Review Product: {{ reviewVariable_read_detail_result.ReviewField_product  }}</h4>
+        <h4>Review Customer:{{ reviewVariable_read_detail_result.ReviewField_customer }}</h4>
+        <h4>Review Rating:  {{ reviewVariable_read_detail_result.ReviewField_rating   }}</h4>
+        <h4>Review Comment: {{ reviewVariable_read_detail_result.ReviewField_comment  }}</h4>
+
+<h1>_______________(C1) Update Customer _______________<h1>
+    <form
+    method="POST" 
+    {% comment %} action="{% url 'url_update_customer' customerParameter_pk %}">   
+        {% csrf_token %}
+        <label
+        for="customerField_mobile">New Mobile Number:
+        </label>
+        
+        <input
+        type="text" id="customerText_mobile" 
+        name="customerText_mobile"
+        >
+        
+        <button type="submit">Update</button>
+    </form>
+<h1>_______________(C2) Update Category _______________<h1>
+    <h4><h4>
+    <form
+    method="POST" 
+    enctype="multipart/form-data"
+    action="{% url 'url_update_category' categoryParameter_pk %}">
+        {% csrf_token %}
+        <label
+        for="name">Category Name:
+        </label>
+        
+        <input
+        type="text" id="categoryText_name" 
+        name="categoryText_name"
+        >
+        
+        <label
+        for="name">Category Slug:
+        </label>
+        
+        <input
+        type="text" id="categoryText_slug" 
+        name="categoryText_slug"
+        >
+    
+        <label
+        for="name">Category Image:
+        </label>
+        
+        <input
+        type="text" id="categoryText_image" 
+        name="categoryText_image"
+        >
+    
+        <label
+        for="name">Category Available:
+        </label>
+        
+        <input
+        type="text" id="categoryText_available" 
+        name="categoryText_available"
+        >
+    
+        <button type="submit">Update</button>
+    </form>
+
+    <h1>_______________(C3) Update Product _______________<h1>
+        <h4><h4>
+        <form
+        method="POST" 
+        enctype="multipart/form-data"
+        action="{% url 'url_update_product' productParameter_pk %}">
+            {% csrf_token %}
+
+            <label
+            for="name">Product Name:
+            </label>
+            
+            <input
+            type="text" id="productText_name" 
+            name="productText_name"
+            >
+
+            <label
+            for="name">Product Category:
+            </label>
+            
+            <input
+            type="text" id="productText_category" 
+            name="productText_category"
+            >
+
+            <label
+            for="name">Product Price:
+            </label>
+            
+            <input
+            type="text" id="productText_price" 
+            name="productText_price"
+            >
+
+            <label
+            for="name">Product stock:
+            </label>
+            
+            <input
+            type="text" id="productText_stock" 
+            name="productText_stock"
+            >
+
+            <label
+            for="name">Product Description:
+            </label>
+            
+            <input
+            type="text" id="productText_description" 
+            name="productText_description"
+            >
+
+            <label
+            for="name">Product Image:
+            </label>
+            
+            <input
+            type="text" id="productText_image" 
+            name="productText_image"
+            >
+
+            <label
+            for="name">Product Available:
+            </label>
+            
+            <input
+            type="text" id="productText_availability" 
+            name="productText_availability"
+            >
+
+            <button type="submit">Update</button>
+        </form>
+
+        <h1>_______________(C4) Update Order _______________<h1>
+            <h4><h4>
+            <form
+            method="POST" 
+            enctype="multipart/form-data"
+            action="{% url 'url_update_order' orderParameter_pk %}">
+                {% csrf_token %}
+                <label
+                for="name">Order Customer :
+                </label>
+                
+                <input
+                type="text" id="orderText_customer" 
+                name="orderText_customer"
+                >
+                
+                <label
+                for="name">Order tatus :
+                </label>
+                
+                <input
+                type="text" id="orderText_status" 
+                name="orderText_status"
+                >
+            
+                <label
+                for="name">Order Date:
+                </label>
+                
+                <input
+                type="text" id="orderText_date" 
+                name="orderText_date"
+                >
+            
+                <label
+                for="name">Order Is Finished:
+                </label>
+                
+                <input
+                type="text" id="orderText_is_finished" 
+                name="orderText_is_finished"
+                >
+            
+                <button type="submit">Update</button>
+            </form>
+<h1>_______________(C5) Update OrderDetail _______________<h1>
+        <h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_update_orderDetail' orderDetailParameter_pk %}">
+            {% csrf_token %}
+            <label 
+            for="OrderDetailText_order">Order Detail Order (ID):
+            </label>
+            
+            <input
+            type="text" id="OrderDetailText_order" 
+            name="OrderDetailText_order"
+            >
+        
+            <label 
+            for="OrderDetailText_product">Order Detail Product (ID):
+            </label>
+            
+            <input 
+            type="text" id="OrderDetailText_product" 
+            name="OrderDetailText_product"
+            >
+        
+            <label 
+            for="OrderDetailText_quantity">Order Detail Quantity:
+            </label>
+            
+            <input type="text" id="OrderDetailText_quantity" 
+            name="OrderDetailText_quantity"
+            >
+        
+            <label 
+            for="OrderDetailText_price">Order Detail Price:
+            </label>
+            
+            <input type="text" id="OrderDetailText_price" 
+            name="OrderDetailText_price"
+            >
+        
+            <button type="submit">Update</button>
+    </form>
+    <h1>_______________(C6) Update Coupon _______________<h1>
+        <h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_update_coupon' couponParameter_pk %}">
+            {% csrf_token %}
+            <label 
+            for="OrderDetailText_order">Coupon Code:
+            </label>
+            
+            <input
+            type="text" id="CouponText_code" 
+            name="CouponText_code"
+            >
+        
+            <label 
+            for="OrderDetailText_product">Coupon Discount:
+            </label>
+            
+            <input 
+            type="text" id="CouponText_discount" 
+            name="CouponText_discount"
+            >
+        
+            <label 
+            for="OrderDetailText_quantity">Coupon Valid From:
+            </label>
+            
+            <input type="text" id="CouponText_valid_from" 
+            name="CouponText_valid_from"
+            >
+        
+            <label 
+            for="OrderDetailText_price">Coupon Valid To:
+            </label>
+            
+            <input type="text" id="CouponText_valid_to" 
+            name="CouponText_valid_to"
+            >
+        
+            <button type="submit">Update</button>
+    </form>
+
+    <h1>_______________(C7) Update Refund _______________<h1>
+        <h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_update_refund' refundParameter_pk %}">
+            {% csrf_token %}
+            <label 
+            for="OrderDetailText_order">Refund Order:
+            </label>
+            
+            <input
+            type="text" id="refundText_order" 
+            name="refundText_order"
+            >
+        
+            <label 
+            for="OrderDetailText_product">Refund Reason:
+            </label>
+            
+            <input 
+            type="text" id="refundText_reason" 
+            name="refundText_reason"
+            >
+        
+            <label 
+            for="OrderDetailText_quantity">Refund Approved:
+            </label>
+            
+            <input type="text" id="refundText_approved" 
+            name="refundText_approved"
+            >
+                
+            <button type="submit">Update</button>
+    </form>
+
+    <h1>_______________(C8) Update Review _______________<h1>
+        <h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_update_review' reviewParameter_pk %}">
+            {% csrf_token %}
+            <label 
+            for="OrderDetailText_order">Review Product (ID):
+            </label>
+            
+            <input
+            type="text" id="ReviewText_product" 
+            name="ReviewText_product"
+            >
+        
+            <label 
+            for="OrderDetailText_product">Review Customer (ID):
+            </label>
+            
+            <input 
+            type="text" id="ReviewText_customer" 
+            name="ReviewText_customer"
+            >
+        
+            <label 
+            for="OrderDetailText_quantity">Review Rating:
+            </label>
+            
+            <input type="text" id="ReviewText_rating" 
+            name="ReviewText_rating"
+            >
+
+            <label 
+            for="OrderDetailText_quantity">Review Comment:
+            </label>
+            
+            <input type="text" id="ReviewText_comment" 
+            name="ReviewText_comment"
+            >
+
+            <button type="submit">Update</button>
+    </form>
+
+
+<h1>____(D1) Delete Customer ____<h1>
+    <h4><h4>
+    </form>
+    <form method="POST"
+    enctype="multipart/form-data"
+    action="{% url 'url_delete_customer'  %}">
+    {% csrf_token %}
+    <label 
+    for="Text_id">Enter (ID):
+    </label>
+    
+    <input
+    type="text" id="Text_id" 
+    name="Text_id"
+    >
+    <button type="submit">Delete</button>
+    </form>
+
+
+<h1>____(D2) Delete Category ____<h1>
+<h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_delete_category'  %}">
+        {% csrf_token %}
+        <label 
+        for="Text_id">Enter (ID):
+        </label>
+                    
+        <input
+        type="text" id="Text_id" 
+        name="Text_id"
+        >
+        <button type="submit">Delete</button>
+</form>
+
+
+<h1>____(D3) Delete Product _____<h1>
+<h4><h4>
+    <form method="POST"
+    enctype="multipart/form-data"
+    action="{% url 'url_delete_product'  %}">
+    {% csrf_token %}
+    <label 
+    for="Text_id">Enter (ID):
+    </label>
+                
+    <input
+    type="text" id="Text_id" 
+    name="Text_id"
+    >
+    <button type="submit">Delete</button>
+</form>
+
+<h1>____(D4) Delete Order _______<h1>
+<h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_delete_order'  %}">
+        {% csrf_token %}
+        <label 
+        for="Text_id">Enter (ID):
+        </label>
+                    
+        <input
+        type="text" id="Text_id" 
+        name="Text_id"
+        >
+        <button type="submit">Delete</button>
+    </form>
+
+
+<h1>____(D5) Delete OrderDetail _<h1>
+<h4><h4>
+    <form method="POST"
+    enctype="multipart/form-data"
+    action="{% url 'url_delete_orderDetail'  %}">
+    {% csrf_token %}
+    <label 
+    for="Text_id">Enter (ID):
+    </label>
+                
+    <input
+    type="text" id="Text_id" 
+    name="Text_id"
+    >
+    <button type="submit">Delete</button>
+</form>
+<h1>____(D6) Delete Coupon ______<h1>
+<h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_delete_coupon'  %}">
+        {% csrf_token %}
+        <label 
+        for="Text_id">Enter (ID):
+        </label>
+                    
+        <input
+        type="text" id="Text_id" 
+        name="Text_id"
+        >
+        <button type="submit">Delete</button>
+    </form>
+<h1>____(D7) Delete Refund ______<h1>
+<h4><h4>
+    <form method="POST"
+    enctype="multipart/form-data"
+    action="{% url 'url_delete_refund'  %}">
+    {% csrf_token %}
+    <label 
+    for="Text_id">Enter (ID):
+    </label>
+                
+    <input
+    type="text" id="Text_id" 
+    name="Text_id"
+    >
+    <button type="submit">Delete</button>
+</form>
+
+<h1>____(D8) Delete Review ______<h1>
+<h4><h4>
+        <form method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'url_delete_review'  %}">
+        {% csrf_token %}
+        <label 
+        for="Text_id">Enter (ID):
+        </label>
+                    
+        <input
+        type="text" id="Text_id" 
+        name="Text_id"
+        >
+        <button type="submit">Delete</button>
+    </form>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+
+<form action="{% url 'url_read_all_customer'  %}"> {% csrf_token %}
+<h1>Customer All - List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Mobile Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer_item in customerVariable_read_all_result %}
+        <tr>
+            <td>{{ customer_item.customerField_user }}</td>
+            <td>{{ customer_item.customerField_mobile }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button type="submit">Show</button>
+</form>
+
+
+<form action="{% url 'url_read_all_category'  %}"> {% csrf_token %}
+<h1>Category All - List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Category Slug</th>
+            <th>Category Image</th>
+            <th>Category Available</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoryVariable_read_all_result_item in categoryVariable_read_all_result %}
+        <tr>
+            <td>{{ categoryVariable_read_all_result_item.categoryField_name }}</td>
+            <td>{{ categoryVariable_read_all_result_item.categoryField_slug }}</td>
+            <td>{{ categoryVariable_read_all_result_item.categoryField_image }}</td>
+            <td>{{ categoryVariable_read_all_result_item.categoryField_available }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button type="submit">Show</button>
+</form>
+
+
+<form action="{% url 'url_read_all_product'  %}"> {% csrf_token %}
+    <h1>Product All - List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Poduct Name</th>
+                <th>Poduct Category</th>
+                <th>Poduct Price</th>
+                <th>Poduct Stock</th>
+                <th>Poduct Description</th>
+                <th>Poduct Image</th>
+                <th>Poduct Availableity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for productVariable_read_all_result_item in productVariable_read_all_result %}
+            <tr>
+                <td>{{ productVariable_read_all_result_item.productField_name }}</td>
+                <td>{{ productVariable_read_all_result_item.productField_category }}</td>
+                <td>{{ productVariable_read_all_result_item.productField_price }}</td>
+                <td>{{ productVariable_read_all_result_item.productField_stock }}</td>
+                <td>{{ productVariable_read_all_result_item.productField_description }}</td>
+                <td>{{ productVariable_read_all_result_item.productField_image }}</td>
+                <td>{{ productVariable_read_all_result_item.productField_availability }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Show</button>
+</form>
+
+
+<form action="{% url 'url_read_all_order'  %}"> {% csrf_token %}
+        <h1>Order All - List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order No./Customer</th>
+                    <th>Order Status</th>
+                    <th>Category Date</th>
+                    <th>Category Finished</th>
+        
+                </tr>
+            </thead>
+            <tbody>
+                {% for orderVariable_read_all_result_item in orderVariable_read_all_result %}
+                <tr>
+                    <td>{{ orderVariable_read_all_result_item.orderField_customer }}</td>
+                    <td>{{ orderVariable_read_all_result_item.orderField_status }}</td>
+                    <td>{{ orderVariable_read_all_result_item.orderField_date }}</td>
+                    <td>{{ orderVariable_read_all_result_item.orderField_is_finished }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Show</button>
+</form>
+
+
+<form action="{% url 'url_read_all_orderDetail'  %}"> {% csrf_token %}
+            <h1>OrderDetail All - List</h1>awdeeefre
+            <table>
+                <thead>
+                    <tr>
+                        <th>OrderDetail No./Customer</th>
+                        <th>OrderDetail Product</th>
+                        <th>OrderDetail Quantity</th>
+                        <th>OrderDetail Price</th>
+            
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for orderDetailVariable_read_all_result_item in orderDetailVariable_read_all_result %}
+                    <tr>
+                        <td>{{ orderDetailVariable_read_all_result_item.OrderDetailField_order }}</td>
+                        <td>{{ orderDetailVariable_read_all_result_item.OrderDetailField_product }}</td>
+                        <td>{{ orderDetailVariable_read_all_result_item.OrderDetailField_quantity }}</td>
+                        <td>{{ orderDetailVariable_read_all_result_item.OrderDetailField_price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">Show</button>
+</form>
+
+
+<form action="{% url 'url_read_all_coupon'  %}"> {% csrf_token %}
+                <h1>Coupon All - List</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Coupon Code</th>
+                            <th>Coupon Discount</th>
+                            <th>Coupon Valid From</th>
+                            <th>Coupon Valid To</th>
+                
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for couponVariable_read_all_result_item in couponVariable_read_all_result %}
+                        <tr>
+                            <td>{{ couponVariable_read_all_result_item.CouponField_code }}</td>
+                            <td>{{ couponVariable_read_all_result_item.CouponField_discount }}</td>
+                            <td>{{ couponVariable_read_all_result_item.CouponField_valid_from }}</td>
+                            <td>{{ couponVariable_read_all_result_item.CouponField_valid_to }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button type="submit">Show</button>
+</form>
+
+
+<form action="{% url 'url_read_all_refund'  %}"> {% csrf_token %}
+                    <h1>Refund All - List</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Refund Order</th>
+                                <th>Refund Reason</th>
+                                <th>Refund Approved</th>                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for refundVariable_read_all_result_result_item in refundVariable_read_all_result %}
+                            <tr>
+                                <td>{{ refundVariable_read_all_result_result_item.refundField_order }}</td>
+                                <td>{{ refundVariable_read_all_result_result_item.refundField_reason }}</td>
+                                <td>{{ refundVariable_read_all_result_result_item.refundField_approved }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit">Show</button>
+</form>
+
+
+                    <form action="{% url 'url_read_all_review'  %}"> {% csrf_token %}
+                        <h1>Review All - List</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Review Customer</th>
+                                    <th>Review Rating</th>
+                                    <th>Review Comment</th>
+                                    <th></th>
+                        
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for reviewVariable_read_all_result_item in reviewVariable_read_all_result %}
+                                <tr>
+                                    <td>{{ reviewVariable_read_all_result_item.ReviewField_product }}</td>
+                                    <td>{{ reviewVariable_read_all_result_item.ReviewField_customer }}</td>
+                                    <td>{{ reviewVariable_read_all_result_item.ReviewField_rating }}</td>
+                                    <td>{{ reviewVariable_read_all_result_item.ReviewField_comment }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <button type="submit">Show</button>
+                        </form>
+        
+
+{% endcomment %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+{% comment %}  
+<form 
+    method="POST"
+    action="{% url 'url_search_customer'  %}"> {% csrf_token %}
+
+<table>
+    <label 
+    for="Text_Search">Search1:
+    </label>
+    
+    <input
+    type="text" id="Text_search_user" 
+    name="Text_search_user"
+    >
+<br>
+
+    <label 
+    for="Text_Search">Search2:
+    </label>
+
+    <input
+    type="text" id="Text_search_mobile" 
+    name="Text_search_mobile"
+    >
+
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Mobile Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customerVariable_search_result_item in customerVariable_search_result %}
+        <tr>
+            <td>{{ customerVariable_search_result_item.customerField_user }}</td>
+            <td>{{ customerVariable_search_result_item.customerField_mobile }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button type="submit">Show</button>
+</form>
+{% endcomment %}
+<h4> Search Customer<h4>
+<form method="POST" action="{% url 'url_search_customer' %}"> {% csrf_token %}
+    <label for="Text_search_user">Search by User:</label>
+    <input type="text" id="Text_search_user" name="Text_search_user">
+    <br>
+    <label for="Text_Search_Mobile">Search by Mobile:</label>
+    <input type="text" id="Text_search_mobile" name="Text_search_mobile">
+    <br>
+    <button type="submit">Customer Show</button>
+</form>
+
+{% if customerVariable_search_result %}
+<table>
+    <thead>
+    <tr>
+    <th>Full Name</th>
+    <th>Mobile Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for customerVariable_search_result_item in customerVariable_search_result %}
+        <tr>
+        <td>{{ customerVariable_search_result_item.customerField_user.username }}</td>
+        <td>{{ customerVariable_search_result_item.customerField_mobile        }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+
+
+
+
+<h4> Search Category<h4>
+<form 
+    method="POST"
+    action="{% url 'url_search_category'  %}"> {% csrf_token %}
+
+<table>
+    <label 
+    for="Text_Search">Search By Name:
+    </label>
+    
+    <input
+    type="text" 
+    id="categoryText_name_search" 
+    name="categoryText_name_search"
+    >
+
+<br>
+    <label 
+    for="Text_Search">Search By Available:
+    </label>
+
+    <input
+    type="text" 
+    id="categoryText_available_search" 
+    name="categoryText_available_search"
+    >
+
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Category Avlailble</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoryVariable_search_result_item in categoryVariable_search_result %}
+        <tr>
+            <td>{{ categoryVariable_search_result_item.categoryField_name      }}</td>
+            <td>{{ categoryVariable_search_result_item.categoryField_available }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button type="submit">Category Show</button>
+</form>
+
+
+
+<h4> Search Product<h4>
+<form 
+    method="POST"
+    action="{% url 'url_search_product'  %}"> {% csrf_token %}
+    
+<table>
+    <label 
+    for="Text_Search">Search By Product:
+    </label>
+    
+    <input
+    type="text" 
+    id="productText_name_search" 
+    name="productText_name_search"
+    >
+
+<br>
+    <label 
+    for="Text_Search">Search By Category:
+    </label>
+    
+    <input
+    type="text" 
+    id="productText_category_search" 
+    name="productText_category_search"
+    >
+
+<br>
+    <label 
+    for="Text_Search">Search By Price:
+    </label>
+    
+    <input
+    type="text" 
+    id="productText_price_search" 
+    name="productText_price_search"
+    >
+
+    <br>
+    <label 
+    for="Text_Search">Search By Stock:
+    </label>
+    
+    <input
+    type="text" 
+    id="productText_stock_search" 
+    name="productText_stock_search"
+    >
+
+    <br>
+    <label 
+    for="Text_Search">Search By Available:
+    </label>
+    
+    <input
+    type="text" 
+    id="productText_available_search" 
+    name="productText_available_search"
+    >
+
+<thead>
+    <tr>
+    <th>Product Name</th>
+    <th>Product Category</th>
+    <th>Product Price</th>
+    <th>Product Stock</th>
+    <th>Product Description</th>
+    <th>Product Imate</th>
+    <th>Product Availabile</th>
+    </tr>
+</thead>
+<tbody>
+    {% for productVariable_search_result_item in productVariable_search_result %}
+    <tr>
+    <td>{{ productVariable_search_result_item.productField_name         }}</td>
+    <td>{{ productVariable_search_result_item.productField_category     }}</td>
+    <td>{{ productVariable_search_result_item.productField_price        }}</td>    
+    <td>{{ productVariable_search_result_item.productField_stock        }}</td>
+    <td>{{ productVariable_search_result_item.productField_description  }}</td>
+    <td>{{ productVariable_search_result_item.productField_image        }}</td>
+    <td>{{ productVariable_search_result_item.productField_availability }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+<button type="submit">Product Show</button>
+</form>
+
+
+
+<h4> Search Order<h4>
+    <form 
+        method="POST"
+        action="{% url 'url_search_order'  %}"> {% csrf_token %}
+        
+    <table>
+        <label 
+        for="Text_Search">Search By Order (put User Name/Customer Name):
+        </label>
+        
+        <input
+        type="text" 
+        id="orderText_customer_search" 
+        name="orderText_customer_search"
+        >
+    
+    <br>
+        <label 
+        for="Text_Search">Search By Status:
+        </label>
+        
+        <input
+        type="text" 
+        id="orderText_status_search" 
+        name="orderText_status_search"
+        >
+    
+    <br>
+        <label 
+        for="Text_Search">Search By Date:
+        </label>
+        
+        <input
+        type="text" 
+        id="orderText_date_search" 
+        name="orderText_date_search"
+        >
+    
+        <br>
+        <label 
+        for="Text_Search">Search By Finished:
+        </label>
+        
+        <input
+        type="text" 
+        id="orderText_is_finished_search" 
+        name="orderText_is_finished_search"
+        >
+
+    <thead>
+        <tr>
+        <th>Order Customer</th>
+        <th>Order Status</th>
+        <th>Order Date</th>
+        <th>Order Finished</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for OrderVariable_search_result_item in OrderVariable_search_result %}
+        <tr>
+        <td>{{ OrderVariable_search_result_item.orderField_customer    }}</td>
+        <td>{{ OrderVariable_search_result_item.orderField_status      }}</td>
+        <td>{{ OrderVariable_search_result_item.orderField_date        }}</td>    
+        <td>{{ OrderVariable_search_result_item.orderField_is_finished }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <button type="submit">Order Show</button>
+    </form>
+
+
+
+
+    <h4> Search OrderDetail<h4>
+        <form 
+            method="POST"
+            action="{% url 'url_search_orderDetail'  %}"> {% csrf_token %}
+            
+        <table>
+            <label 
+            for="Text_Search">Search By OrderDetail (put User Name/Customer Name):
+            </label>
+            
+            <input
+            type="text" 
+            id="OrderDetailVariable_order_search" 
+            name="OrderDetailVariable_order_search"
+            >
+        
+        <br>
+            <label 
+            for="Text_Search">Search By Product:
+            </label>
+            
+            <input
+            type="text" 
+            id="OrderDetailVariable_product_search" 
+            name="OrderDetailVariable_product_search"
+            >
+        
+        <br>
+            <label 
+            for="Text_Search">Search By Quantity:
+            </label>
+            
+            <input
+            type="text" 
+            id="OrderDetailVariable_quantity_search" 
+            name="OrderDetailVariable_quantity_search"
+            >
+        
+            <br>
+            <label 
+            for="Text_Search">Search By Price:
+            </label>
+            
+            <input
+            type="text" 
+            id="OrderDetailVariable_price_search" 
+            name="OrderDetailVariable_price_search"
+            >
+    
+        <thead>
+            <tr>
+            <th>OrderDetail  Order No.</th>
+            <th>OrderDetail  Product Name</th>
+            <th>OrderDetail  Quantity</th>
+            <th>OrderDetail  Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for OrderDetailVariable_search_result_item in OrderDetailVariable_search_result %}
+            <tr>
+            <td>{{ OrderDetailVariable_search_result_item.OrderDetailField_order    }}</td>
+            <td>{{ OrderDetailVariable_search_result_item.OrderDetailField_product  }}</td>
+            <td>{{ OrderDetailVariable_search_result_item.OrderDetailField_quantity }}</td>    
+            <td>{{ OrderDetailVariable_search_result_item.OrderDetailField_price    }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        <button type="submit">OrderDetail Show</button>
+        </form>
+
+
+
+        <h4> Search Coupon<h4>
+            <form 
+                method="POST"
+                action="{% url 'url_search_coupon'  %}"> {% csrf_token %}
+                
+            <table>
+                <label 
+                for="Text_Search">Search By Code:
+                </label>
+                
+                <input
+                type="text" 
+                id="CouponText_code_search" 
+                name="CouponText_code_search"
+                >
+            
+            <br>
+                <label 
+                for="Text_Search">Search By Discount:
+                </label>
+                
+                <input
+                type="text" 
+                id="CouponText_discount_search" 
+                name="CouponText_discount_search"
+                >
+            
+            <br>
+                <label 
+                for="Text_Search">Search By Valid From:
+                </label>
+                
+                <input
+                type="text" 
+                id="CouponText_valid_from_search" 
+                name="CouponText_valid_from_search"
+                >
+            
+                <br>
+                <label 
+                for="Text_Search">Search By Valid To:
+                </label>
+                
+                <input
+                type="text" 
+                id="CouponText_valid_to_search" 
+                name="CouponText_valid_to_search"
+                >
+        
+            <thead>
+                <tr>
+                <th>Coupon  Code</th>
+                <th>Coupon  Discount</th>
+                <th>Coupon  Valid From</th>
+                <th>Coupon  Valid To</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for couponVariable_search_result_item in couponVariable_search_result %}
+                <tr>
+                <td>{{ couponVariable_search_result_item.CouponField_code       }}</td>
+                <td>{{ couponVariable_search_result_item.CouponField_discount   }}</td>
+                <td>{{ couponVariable_search_result_item.CouponField_valid_from }}</td>    
+                <td>{{ couponVariable_search_result_item.CouponField_valid_to   }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            <button type="submit">Coupon Show</button>
+            </form>
+
+
+
+            <h4> Search Refund<h4>
+                <form 
+                    method="POST"
+                    action="{% url 'url_search_refund'  %}"> {% csrf_token %}
+                    
+                <table>
+                    <label 
+                    for="Text_Search">Search By Order(put User Name/Customer Name):
+                </label>
+                    
+                    <input
+                    type="text" 
+                    id="refundText_order_search" 
+                    name="refundText_order_search"
+                    >
+                
+                <br>
+                    <label 
+                    for="Text_Search">Search By Reason:
+                    </label>
+                    
+                    <input
+                    type="text" 
+                    id="refundText_reason_search" 
+                    name="refundText_reason_search"
+                    >
+                
+                <br>
+                    <label 
+                    for="Text_Search">Search By Approved:
+                    </label>
+                    
+                    <input
+                    type="text" 
+                    id="refundText_approved_search" 
+                    name="refundText_approved_search"
+                    >
+                
+                <thead>
+                    <tr>
+                    <th>Refund Order</th>
+                    <th>Refund Reason</th>
+                    <th>Refund Approved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for refundVariable_search_result_item in refundVariable_search_result %}
+                    <tr>
+                    <td>{{ refundVariable_search_result_item.refundField_order    }}</td>
+                    <td>{{ refundVariable_search_result_item.refundField_reason  }}</td>
+                    <td>{{ refundVariable_search_result_item.refundField_approved }}</td>    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+                <button type="submit">Refund Show</button>
+                </form>
+
+
+
+                <h4> Search Review<h4>
+                    <form 
+                        method="POST"
+                        action="{% url 'url_search_review'  %}"> {% csrf_token %}
+                        
+                    <table>
+                        <label 
+                        for="Text_Search">Search By Product:
+                        </label>
+                        
+                        <input
+                        type="text" 
+                        id="ReviewText_product_search" 
+                        name="ReviewText_product_search"
+                        >
+                    
+                    <br>
+                        <label 
+                        for="Text_Search">Search By Customer:
+                        </label>
+                        
+                        <input
+                        type="text" 
+                        id="ReviewText_customer_search" 
+                        name="ReviewText_customer_search"
+                        >
+                    
+                    <br>
+                        <label 
+                        for="Text_Search">Search By Rating:
+                        </label>
+                        
+                        <input
+                        type="text" 
+                        id="ReviewText_rating_search" 
+                        name="ReviewText_rating_search"
+                        >
+                    
+                        <br>
+                        <label 
+                        for="Text_Search">Search By Comment:
+                        </label>
+                        
+                        <input
+                        type="text" 
+                        id="ReviewText_comment_search" 
+                        name="ReviewText_comment_search"
+                        >
+                
+                    <thead>
+                        <tr>
+                        <th>Review Product</th>
+                        <th>Review Customer</th>
+                        <th>Review Rating</th>
+                        <th>Review Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reviewVariable_search_result_item in reviewVariable_search_result %}
+                        <tr>
+                        <td>{{ reviewVariable_search_result_item.ReviewField_product  }}</td>
+                        <td>{{ reviewVariable_search_result_item.ReviewField_customer }}</td>
+                        <td>{{ reviewVariable_search_result_item.ReviewField_rating   }}</td>    
+                        <td>{{ reviewVariable_search_result_item.ReviewField_comment  }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                    <button type="submit">Review Show</button>
+                    </form>
+                
+
+</body>
+
+
+{% comment %}
+
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

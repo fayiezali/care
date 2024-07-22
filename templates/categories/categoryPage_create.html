@@ -1,0 +1,29 @@
+<!-- templates/categories/category_form.html -->
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>{% if category %}Edit{% else %}Add{% endif %} Category</title>
+    
+</head>
+<body>
+    <h1>{% if categoryVariable_read_all_result %}Edit{% else %}Add{% endif %} Category</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{% if category %}{{ category.name }}{% endif %}">
+        
+        <br>
+        
+        <label for="name">Slug:</label>
+        <input type="text" id="slug" name="slug" value="{% if category %}{{ category.slug }}{% endif %}">
+        
+        <br>
+        
+        <input type="submit" value="{% if category %}Update{% else %}Create{% endif %}">
+    </form>
+    
+    {% comment %} <a href="{% if categoryVariable_read_all_result %}{% url 'categoryURLs_read_detail' categoryVariable_read_all_result.id %}{% else %}{% url 'category_url_read_all' %}{% endif %}">Cancel</a> {% endcomment %}
